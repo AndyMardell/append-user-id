@@ -52,7 +52,7 @@ main filter is `append_id_content` and can be used as follows:
 
  	return $link_html;
  }
- add_filter( 'append_id_content', 'your_theme_append_id_content', 10, 4 );
+ add_filter( 'append_id_content', 'your_theme_append_id_content', 10, 3 );
 ```
 
 ## Changelog

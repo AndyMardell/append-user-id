@@ -89,20 +89,35 @@ class Append_ID_Admin {
 		);
 
 		if ( is_user_logged_in() ) {
-			$a_open = sprintf(
+			$html = sprintf(
 				'<a href="%s?user_id=%s">',
 				esc_url( $append_id_atts['url'] ),
 				get_current_user_id()
 			);
-			return $a_open . esc_html( $content ) . '</a>';
+
+			$html .= esc_html( $content ) . '</a>';
+
+			return apply_filters(
+				'append_id_content',
+				$html,
+				$url,
+				$content
+			);
 		}
 
-		$a_open = sprintf(
+		$html = sprintf(
 			'<a href="%s">',
 			esc_url( $append_id_atts['url'] )
 		);
 
-		return $a_open . esc_html( $content ) . '</a>';
+		$html .= esc_html( $content ) . '</a>';
+
+		return apply_filters(
+			'append_id_content',
+			$html,
+			$url,
+			$content
+		);
 	}
 
 	/**
